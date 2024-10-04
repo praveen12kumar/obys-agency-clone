@@ -1,4 +1,14 @@
-var tl = gsap.timeline();
+
+document.addEventListener("mousemove", function(event){
+   gsap.to("#crsr", {
+       left:event.x,
+       top:event.y
+   })
+})
+
+
+function loadingAnimation(){
+    var tl = gsap.timeline();
 
 
 tl.from(".line h1", {
@@ -44,6 +54,17 @@ tl.to("#loader",{
     display:"none",
 })
 
+tl.from("#nav",{
+    opacity:0,
+    duration:0.1,
+})
 
+tl.from("#hero1 h1, #hero2 h1, #hero3 h1, #hero4 h1 ",{
+    y:80,
+    opacity:0,
+    stagger:0.4,
+    duration:0.4,
+    })
+}
 
-
+loadingAnimation();
